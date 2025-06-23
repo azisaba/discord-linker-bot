@@ -110,7 +110,7 @@ class DiscordLinkerBot {
 
       if (existingRows.length > 0) {
         await interaction.reply({
-          content: 'あなたのアカウントは既にリンクされています。新しいアカウントをリンクするにはサポートにお問い合わせください。',
+          content: 'あなたのアカウントは既にリンクされています。新しいアカウントをリンクするにはサポートにお問い合わせください。サーバーに再参加したあとにアカウントをリンクし直すには `/resync` を実行してください、',
           flags: 'Ephemeral',
         });
         return;
