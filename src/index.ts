@@ -67,7 +67,10 @@ class DiscordLinkerBot {
           option.setName('code')
             .setDescription('リンクコード')
             .setRequired(true)
-        )
+        ),
+      new SlashCommandBuilder()
+        .setName('resync')
+        .setDescription('ロールを再同期します')
     ];
 
     const rest = new REST().setToken(process.env.DISCORD_TOKEN!);
@@ -93,7 +96,7 @@ class DiscordLinkerBot {
     if (!this.db) {
       await interaction.reply({
         content: 'データベース接続エラーが発生しました。後でもう一度お試しください。',
-        ephemeral: true
+        flags: 'Ephemeral',
       });
       return;
     }
@@ -108,7 +111,7 @@ class DiscordLinkerBot {
       if (existingRows.length > 0) {
         await interaction.reply({
           content: 'あなたのアカウントは既にリンクされています。新しいアカウントをリンクするにはサポートにお問い合わせください。',
-          ephemeral: true
+          flags: 'Ephemeral',
         });
         return;
       }
@@ -122,7 +125,7 @@ class DiscordLinkerBot {
       if (playerRows.length === 0) {
         await interaction.reply({
           content: '無効なリンクコードです。正しいコードを入力してください。',
-          ephemeral: true
+          flags: 'Ephemeral',
         });
         return;
       }
@@ -149,7 +152,7 @@ class DiscordLinkerBot {
 
       await interaction.reply({
         content: `リンクが完了しました！Minecraftプレイヤー "${player.name}" とDiscordアカウントが正常にリンクされました。`,
-        ephemeral: true
+        flags: 'Ephemeral',
       });
 
       console.log(`Successfully linked Discord user ${userId} to Minecraft player ${player.name} (${player.id})`);
@@ -158,7 +161,82 @@ class DiscordLinkerBot {
       console.error('Error during link process:', error);
       await interaction.reply({
         content: 'リンク処理中にエラーが発生しました。後でもう一度お試しください。',
-        ephemeral: true
+        flags: 'Ephemeral',
+      });
+    }
+  }
+
+  async handleResyncCommand(interaction: ChatInputCommandInteraction) {
+    const userId = interaction.user.id;
+
+    if (!this.db) {
+      await interaction.reply({
+        content: 'データベース接続エラーが発生しました。後でもう一度お試しください。',
+        flags: 'Ephemeral',
+      });
+      return;
+    }
+
+    try {
+      // Check if user is linked
+      const [playerRows] = await this.db.execute(
+        'SELECT * FROM players WHERE discord_id = ?',
+        [userId]
+      ) as [Player[], mysql.FieldPacket[]];
+
+      if (playerRows.length === 0) {
+        await interaction.reply({
+          content: 'あなたのアカウントはまだリンクされていません。先に `/link` コマンドでアカウントをリンクしてください。',
+          flags: 'Ephemeral',
+        });
+        return;
+      }
+
+      const player = playerRows[0];
+
+      // Check if user already has the role
+      const guild = interaction.guild;
+      if (!guild || !process.env.DISCORD_ROLE_ID) {
+        await interaction.reply({
+          content: 'ロールの設定が見つかりません。サーバー管理者にお問い合わせください。',
+          flags: 'Ephemeral',
+        });
+        return;
+      }
+
+      const member = await guild.members.fetch(userId);
+      const role = await guild.roles.fetch(process.env.DISCORD_ROLE_ID);
+      
+      if (!role) {
+        await interaction.reply({
+          content: 'ロールが見つかりません。サーバー管理者にお問い合わせください。',
+          flags: 'Ephemeral',
+        });
+        return;
+      }
+
+      if (member.roles.cache.has(role.id)) {
+        await interaction.reply({
+          content: 'あなたは既にこのロールを持っています。',
+          flags: 'Ephemeral',
+        });
+        return;
+      }
+
+      // Assign role to user
+      await member.roles.add(role);
+      console.log(`Resynced role for user ${userId} (${player.name})`);
+
+      await interaction.reply({
+        content: `ロールの再同期が完了しました！Minecraftプレイヤー "${player.name}" のロールが復元されました。`,
+        flags: 'Ephemeral',
+      });
+
+    } catch (error) {
+      console.error('Error during resync process:', error);
+      await interaction.reply({
+        content: '再同期処理中にエラーが発生しました。後でもう一度お試しください。',
+        flags: 'Ephemeral',
       });
     }
   }
@@ -176,6 +254,8 @@ class DiscordLinkerBot {
 
       if (interaction.commandName === 'link') {
         await this.handleLinkCommand(interaction);
+      } else if (interaction.commandName === 'resync') {
+        await this.handleResyncCommand(interaction);
       }
     });
 
