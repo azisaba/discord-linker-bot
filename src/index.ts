@@ -101,6 +101,9 @@ class DiscordLinkerBot {
       return;
     }
 
+    // Start transaction
+    await this.db.beginTransaction();
+
     try {
       // Check if user is already linked
       const [existingRows] = await this.db.execute(
@@ -109,6 +112,7 @@ class DiscordLinkerBot {
       ) as [Player[], mysql.FieldPacket[]];
 
       if (existingRows.length > 0) {
+        await this.db.rollback();
         await interaction.reply({
           content: 'あなたのアカウントは既にリンクされています。新しいアカウントをリンクするにはサポートにお問い合わせください。サーバーに再参加したあとにアカウントをリンクし直すには `/resync` を実行してください、',
           flags: 'Ephemeral',
@@ -118,11 +122,12 @@ class DiscordLinkerBot {
 
       // Find player with matching link code
       const [playerRows] = await this.db.execute(
-        'SELECT * FROM players WHERE link_code = ? AND discord_id IS NULL',
+        'SELECT * FROM players WHERE link_code = ? AND discord_id IS NULL FOR UPDATE',
         [linkCode]
       ) as [Player[], mysql.FieldPacket[]];
 
       if (playerRows.length === 0) {
+        await this.db.rollback();
         await interaction.reply({
           content: '無効なリンクコードです。正しいコードを入力してください。',
           flags: 'Ephemeral',
@@ -144,11 +149,31 @@ class DiscordLinkerBot {
         const member = await guild.members.fetch(userId);
         const role = await guild.roles.fetch(process.env.DISCORD_ROLE_ID);
         
-        if (role) {
+        if (!role) {
+          await this.db.rollback();
+          await interaction.reply({
+            content: 'ロールが見つかりません。サーバー管理者にお問い合わせください。',
+            flags: 'Ephemeral',
+          });
+          return;
+        }
+
+        try {
           await member.roles.add(role);
           console.log(`Assigned role to user ${userId} (${player.name})`);
+        } catch (roleError) {
+          console.error(`Failed to assign role to user ${userId}:`, roleError);
+          await this.db.rollback();
+          await interaction.reply({
+            content: 'ロールの割り当てに失敗しました。サーバー管理者にお問い合わせください。',
+            flags: 'Ephemeral',
+          });
+          return;
         }
       }
+
+      // Commit transaction if everything succeeded
+      await this.db.commit();
 
       await interaction.reply({
         content: `リンクが完了しました！Minecraftプレイヤー "${player.name}" とDiscordアカウントが正常にリンクされました。`,
@@ -159,6 +184,7 @@ class DiscordLinkerBot {
 
     } catch (error) {
       console.error('Error during link process:', error);
+      await this.db.rollback();
       await interaction.reply({
         content: 'リンク処理中にエラーが発生しました。後でもう一度お試しください。',
         flags: 'Ephemeral',
