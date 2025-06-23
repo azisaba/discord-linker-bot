@@ -1,0 +1,14 @@
+services:
+  discord-bot:
+    build: .
+    restart: always
+    environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
+      DISCORD_ROLE_ID: ${DISCORD_ROLE_ID}
+      DB_HOST: mariadb
+      DB_USER: ${DB_USER:-minecraft}
+      DB_PASSWORD: ${DB_PASSWORD:-minecraftpassword}
+      DB_NAME: ${DB_NAME:-minecraft}
+    env_file:
+      - .env
