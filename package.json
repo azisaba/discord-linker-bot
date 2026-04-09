@@ -9,12 +9,12 @@
     "dev": "tsc && node dist/index.js"
   },
   "dependencies": {
-    "discord.js": "^14.14.1",
-    "mysql2": "^3.6.5",
-    "dotenv": "^16.3.1"
+    "discord.js": "^14.26.2",
+    "dotenv": "^16.6.1",
+    "mysql2": "^3.21.0"
   },
   "devDependencies": {
-    "typescript": "^5.5.3"
+    "typescript": "^5.9.3"
   },
   "private": true
 }
