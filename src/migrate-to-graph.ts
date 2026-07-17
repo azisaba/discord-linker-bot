@@ -20,14 +20,19 @@ export async function migrateToGraph(connection: Connection) {
     }),
   );
 
-  const [players] = await connection.execute('SELECT id, discord_id FROM players') as [PlayerRecord[], FieldPacket[]];
+  const [players] = await connection.execute(
+    `SELECT id, discord_id
+     FROM players
+     WHERE discord_id IS NOT NULL
+       AND discord_id <> ''`,
+  ) as [PlayerRecord[], FieldPacket[]];
 
-  for (const {id, discord_id} of players) {
+  for (const { id, discord_id } of players) {
     await playersApi.updatePlayerById({
       playerId: id,
       updatePlayerByIdRequest: {
-        discordId: discord_id ?? undefined,
-      }
+        discordId: discord_id!,
+      },
     });
   }
 
