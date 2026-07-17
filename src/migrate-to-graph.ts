@@ -28,6 +28,7 @@ export async function migrateToGraph(connection: Connection) {
   ) as [PlayerRecord[], FieldPacket[]];
 
   for (const { id, discord_id } of players) {
+    if (!discord_id) continue;
     await playersApi.updatePlayerById({
       playerId: id,
       updatePlayerByIdRequest: {
