@@ -1,6 +1,7 @@
 import { Client, GatewayIntentBits, SlashCommandBuilder, ChatInputCommandInteraction, REST, Routes } from 'discord.js';
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
+import {migrateToGraph} from './migrate-to-graph';
 
 dotenv.config();
 
@@ -269,6 +270,7 @@ class DiscordLinkerBot {
 
   async start() {
     await this.connectToDatabase();
+    await migrateToGraph(this.db!);
 
     this.client.once('ready', async () => {
       console.log(`Logged in as ${this.client.user?.tag}!`);

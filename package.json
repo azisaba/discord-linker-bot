@@ -9,6 +9,7 @@
     "dev": "tsc && node dist/index.js"
   },
   "dependencies": {
+    "@azisaba/graph": "0.1.0-rc.3",
     "discord.js": "^14.26.2",
     "dotenv": "^16.6.1",
     "mysql2": "^3.21.0"
