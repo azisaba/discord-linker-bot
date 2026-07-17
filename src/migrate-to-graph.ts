@@ -8,6 +8,7 @@ type PlayerRecord = {
 
 export async function migrateToGraph(connection: Connection) {
   console.log('Migrating Discord links to graph');
+  console.log('foobar');
 
   const apiKey = process.env.GRAPH_API_KEY;
   if (!apiKey) {
