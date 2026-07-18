@@ -1,7 +1,15 @@
-import { Client, GatewayIntentBits, SlashCommandBuilder, ChatInputCommandInteraction, REST, Routes } from 'discord.js';
-import mysql from 'mysql2/promise';
-import dotenv from 'dotenv';
-import {migrateToGraph} from './migrate-to-graph';
+import {
+  ChatInputCommandInteraction,
+  Client,
+  GatewayIntentBits,
+  REST,
+  Routes,
+  SlashCommandBuilder,
+} from "discord.js";
+import dotenv from "dotenv";
+import mysql from "mysql2/promise";
+
+import { migrateToGraph } from "./migrate-to-graph";
 
 dotenv.config();
 
@@ -18,23 +26,23 @@ class DiscordLinkerBot {
 
   constructor() {
     this.client = new Client({
-      intents: [GatewayIntentBits.Guilds]
+      intents: [GatewayIntentBits.Guilds],
     });
   }
 
   async connectToDatabase() {
     try {
       this.db = await mysql.createConnection({
-        host: process.env.DB_HOST || 'localhost',
-        user: process.env.DB_USER || 'root',
-        password: process.env.DB_PASSWORD || '',
-        database: process.env.DB_NAME || 'minecraft'
+        host: process.env.DB_HOST || "localhost",
+        user: process.env.DB_USER || "root",
+        password: process.env.DB_PASSWORD || "",
+        database: process.env.DB_NAME || "minecraft",
       });
 
-      console.log('Connected to MariaDB database');
+      console.log("Connected to MariaDB database");
       await this.createTablesIfNotExists();
     } catch (error) {
-      console.error('Failed to connect to database:', error);
+      console.error("Failed to connect to database:", error);
       process.exit(1);
     }
   }
@@ -53,51 +61,46 @@ class DiscordLinkerBot {
 
     try {
       await this.db.execute(createTableQuery);
-      console.log('Players table created or already exists');
+      console.log("Players table created or already exists");
     } catch (error) {
-      console.error('Failed to create players table:', error);
+      console.error("Failed to create players table:", error);
     }
   }
 
   async registerSlashCommands() {
     const commands = [
       new SlashCommandBuilder()
-        .setName('link')
-        .setDescription('Minecraftアカウントとリンクします')
-        .addStringOption(option =>
-          option.setName('code')
-            .setDescription('リンクコード')
-            .setRequired(true)
+        .setName("link")
+        .setDescription("Minecraftアカウントとリンクします")
+        .addStringOption((option) =>
+          option.setName("code").setDescription("リンクコード").setRequired(true),
         ),
-      new SlashCommandBuilder()
-        .setName('resync')
-        .setDescription('ロールを再同期します')
+      new SlashCommandBuilder().setName("resync").setDescription("ロールを再同期します"),
     ];
 
     const rest = new REST().setToken(process.env.DISCORD_TOKEN!);
 
     try {
-      console.log('Started refreshing application (/) commands.');
+      console.log("Started refreshing application (/) commands.");
 
-      await rest.put(
-        Routes.applicationCommands(process.env.DISCORD_CLIENT_ID!),
-        { body: commands }
-      );
+      await rest.put(Routes.applicationCommands(process.env.DISCORD_CLIENT_ID!), {
+        body: commands,
+      });
 
-      console.log('Successfully reloaded application (/) commands.');
+      console.log("Successfully reloaded application (/) commands.");
     } catch (error) {
-      console.error('Failed to register slash commands:', error);
+      console.error("Failed to register slash commands:", error);
     }
   }
 
   async handleLinkCommand(interaction: ChatInputCommandInteraction) {
-    const linkCode = interaction.options.getString('code', true);
+    const linkCode = interaction.options.getString("code", true);
     const userId = interaction.user.id;
 
     if (!this.db) {
       await interaction.reply({
-        content: 'データベース接続エラーが発生しました。後でもう一度お試しください。',
-        flags: 'Ephemeral',
+        content: "データベース接続エラーが発生しました。後でもう一度お試しください。",
+        flags: "Ephemeral",
       });
       return;
     }
@@ -107,31 +110,31 @@ class DiscordLinkerBot {
 
     try {
       // Check if user is already linked
-      const [existingRows] = await this.db.execute(
-        'SELECT * FROM players WHERE discord_id = ?',
-        [userId]
-      ) as [Player[], mysql.FieldPacket[]];
+      const [existingRows] = (await this.db.execute("SELECT * FROM players WHERE discord_id = ?", [
+        userId,
+      ])) as [Player[], mysql.FieldPacket[]];
 
       if (existingRows.length > 0) {
         await this.db.rollback();
         await interaction.reply({
-          content: 'あなたのアカウントは既にリンクされています。新しいアカウントをリンクするにはサポートにお問い合わせください。サーバーに再参加したあとにアカウントをリンクし直すには `/resync` を実行してください、',
-          flags: 'Ephemeral',
+          content:
+            "あなたのアカウントは既にリンクされています。新しいアカウントをリンクするにはサポートにお問い合わせください。サーバーに再参加したあとにアカウントをリンクし直すには `/resync` を実行してください、",
+          flags: "Ephemeral",
         });
         return;
       }
 
       // Find player with matching link code
-      const [playerRows] = await this.db.execute(
-        'SELECT * FROM players WHERE link_code = ? AND discord_id IS NULL FOR UPDATE',
-        [linkCode]
-      ) as [Player[], mysql.FieldPacket[]];
+      const [playerRows] = (await this.db.execute(
+        "SELECT * FROM players WHERE link_code = ? AND discord_id IS NULL FOR UPDATE",
+        [linkCode],
+      )) as [Player[], mysql.FieldPacket[]];
 
       if (playerRows.length === 0) {
         await this.db.rollback();
         await interaction.reply({
-          content: '無効なリンクコードです。正しいコードを入力してください。',
-          flags: 'Ephemeral',
+          content: "無効なリンクコードです。正しいコードを入力してください。",
+          flags: "Ephemeral",
         });
         return;
       }
@@ -139,22 +142,22 @@ class DiscordLinkerBot {
       const player = playerRows[0];
 
       // Update player with Discord ID and clear link code
-      await this.db.execute(
-        'UPDATE players SET discord_id = ?, link_code = NULL WHERE id = ?',
-        [userId, player.id]
-      );
+      await this.db.execute("UPDATE players SET discord_id = ?, link_code = NULL WHERE id = ?", [
+        userId,
+        player.id,
+      ]);
 
       // Assign role to user
       const guild = interaction.guild;
       if (guild && process.env.DISCORD_ROLE_ID) {
         const member = await guild.members.fetch(userId);
         const role = await guild.roles.fetch(process.env.DISCORD_ROLE_ID);
-        
+
         if (!role) {
           await this.db.rollback();
           await interaction.reply({
-            content: 'ロールが見つかりません。サーバー管理者にお問い合わせください。',
-            flags: 'Ephemeral',
+            content: "ロールが見つかりません。サーバー管理者にお問い合わせください。",
+            flags: "Ephemeral",
           });
           return;
         }
@@ -166,8 +169,8 @@ class DiscordLinkerBot {
           console.error(`Failed to assign role to user ${userId}:`, roleError);
           await this.db.rollback();
           await interaction.reply({
-            content: 'ロールの割り当てに失敗しました。サーバー管理者にお問い合わせください。',
-            flags: 'Ephemeral',
+            content: "ロールの割り当てに失敗しました。サーバー管理者にお問い合わせください。",
+            flags: "Ephemeral",
           });
           return;
         }
@@ -178,17 +181,18 @@ class DiscordLinkerBot {
 
       await interaction.reply({
         content: `リンクが完了しました！Minecraftプレイヤー "${player.name}" とDiscordアカウントが正常にリンクされました。`,
-        flags: 'Ephemeral',
+        flags: "Ephemeral",
       });
 
-      console.log(`Successfully linked Discord user ${userId} to Minecraft player ${player.name} (${player.id})`);
-
+      console.log(
+        `Successfully linked Discord user ${userId} to Minecraft player ${player.name} (${player.id})`,
+      );
     } catch (error) {
-      console.error('Error during link process:', error);
+      console.error("Error during link process:", error);
       await this.db.rollback();
       await interaction.reply({
-        content: 'リンク処理中にエラーが発生しました。後でもう一度お試しください。',
-        flags: 'Ephemeral',
+        content: "リンク処理中にエラーが発生しました。後でもう一度お試しください。",
+        flags: "Ephemeral",
       });
     }
   }
@@ -198,23 +202,23 @@ class DiscordLinkerBot {
 
     if (!this.db) {
       await interaction.reply({
-        content: 'データベース接続エラーが発生しました。後でもう一度お試しください。',
-        flags: 'Ephemeral',
+        content: "データベース接続エラーが発生しました。後でもう一度お試しください。",
+        flags: "Ephemeral",
       });
       return;
     }
 
     try {
       // Check if user is linked
-      const [playerRows] = await this.db.execute(
-        'SELECT * FROM players WHERE discord_id = ?',
-        [userId]
-      ) as [Player[], mysql.FieldPacket[]];
+      const [playerRows] = (await this.db.execute("SELECT * FROM players WHERE discord_id = ?", [
+        userId,
+      ])) as [Player[], mysql.FieldPacket[]];
 
       if (playerRows.length === 0) {
         await interaction.reply({
-          content: 'あなたのアカウントはまだリンクされていません。先に `/link` コマンドでアカウントをリンクしてください。',
-          flags: 'Ephemeral',
+          content:
+            "あなたのアカウントはまだリンクされていません。先に `/link` コマンドでアカウントをリンクしてください。",
+          flags: "Ephemeral",
         });
         return;
       }
@@ -225,27 +229,27 @@ class DiscordLinkerBot {
       const guild = interaction.guild;
       if (!guild || !process.env.DISCORD_ROLE_ID) {
         await interaction.reply({
-          content: 'ロールの設定が見つかりません。サーバー管理者にお問い合わせください。',
-          flags: 'Ephemeral',
+          content: "ロールの設定が見つかりません。サーバー管理者にお問い合わせください。",
+          flags: "Ephemeral",
         });
         return;
       }
 
       const member = await guild.members.fetch(userId);
       const role = await guild.roles.fetch(process.env.DISCORD_ROLE_ID);
-      
+
       if (!role) {
         await interaction.reply({
-          content: 'ロールが見つかりません。サーバー管理者にお問い合わせください。',
-          flags: 'Ephemeral',
+          content: "ロールが見つかりません。サーバー管理者にお問い合わせください。",
+          flags: "Ephemeral",
         });
         return;
       }
 
       if (member.roles.cache.has(role.id)) {
         await interaction.reply({
-          content: 'あなたは既にこのロールを持っています。',
-          flags: 'Ephemeral',
+          content: "あなたは既にこのロールを持っています。",
+          flags: "Ephemeral",
         });
         return;
       }
@@ -256,14 +260,13 @@ class DiscordLinkerBot {
 
       await interaction.reply({
         content: `ロールの再同期が完了しました！Minecraftプレイヤー "${player.name}" のロールが復元されました。`,
-        flags: 'Ephemeral',
+        flags: "Ephemeral",
       });
-
     } catch (error) {
-      console.error('Error during resync process:', error);
+      console.error("Error during resync process:", error);
       await interaction.reply({
-        content: '再同期処理中にエラーが発生しました。後でもう一度お試しください。',
-        flags: 'Ephemeral',
+        content: "再同期処理中にエラーが発生しました。後でもう一度お試しください。",
+        flags: "Ephemeral",
       });
     }
   }
@@ -272,17 +275,17 @@ class DiscordLinkerBot {
     await this.connectToDatabase();
     await migrateToGraph(this.db!);
 
-    this.client.once('ready', async () => {
+    this.client.once("ready", async () => {
       console.log(`Logged in as ${this.client.user?.tag}!`);
       await this.registerSlashCommands();
     });
 
-    this.client.on('interactionCreate', async interaction => {
+    this.client.on("interactionCreate", async (interaction) => {
       if (!interaction.isChatInputCommand()) return;
 
-      if (interaction.commandName === 'link') {
+      if (interaction.commandName === "link") {
         await this.handleLinkCommand(interaction);
-      } else if (interaction.commandName === 'resync') {
+      } else if (interaction.commandName === "resync") {
         await this.handleResyncCommand(interaction);
       }
     });

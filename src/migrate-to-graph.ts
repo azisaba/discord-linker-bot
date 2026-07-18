@@ -1,5 +1,5 @@
-import {Configuration, PlayersApi} from '@azisaba/graph';
-import {Connection, FieldPacket} from 'mysql2/promise';
+import { Configuration, PlayersApi } from "@azisaba/graph";
+import { Connection, FieldPacket } from "mysql2/promise";
 
 type PlayerRecord = {
   id: string;
@@ -7,12 +7,11 @@ type PlayerRecord = {
 };
 
 export async function migrateToGraph(connection: Connection) {
-  console.log('Migrating Discord links to graph');
-  console.log('foobar!');
+  console.log("Migrating Discord links to graph");
 
   const apiKey = process.env.GRAPH_API_KEY;
   if (!apiKey) {
-    throw new Error('GRAPH_API_KEY is not set');
+    throw new Error("GRAPH_API_KEY is not set");
   }
 
   const playersApi = new PlayersApi(
@@ -21,12 +20,12 @@ export async function migrateToGraph(connection: Connection) {
     }),
   );
 
-  const [players] = await connection.execute(
+  const [players] = (await connection.execute(
     `SELECT id, discord_id
      FROM players
      WHERE discord_id IS NOT NULL
        AND discord_id <> ''`,
-  ) as [PlayerRecord[], FieldPacket[]];
+  )) as [PlayerRecord[], FieldPacket[]];
 
   for (const { id, discord_id } of players) {
     if (!discord_id) continue;
