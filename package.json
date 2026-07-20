@@ -2,19 +2,19 @@
   "name": "discord-linker-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "tsc && node dist/index.js",
+    "start": "node dist/main.js",
+    "dev": "tsc && node dist/main.js",
     "format:fix": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@azisaba/graph": "0.1.0-rc.3",
+    "@azisaba/graph": "0.1.0-rc.4",
     "discord.js": "^14.26.2",
     "dotenv": "^16.6.1",
-    "mysql2": "^3.21.0"
+    "redis": "^6.1.0"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",

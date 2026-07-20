@@ -2,13 +2,24 @@ services:
   discord-bot:
     build: .
     restart: always
+    depends_on:
+      redis:
+        condition: service_healthy
     environment:
-      DISCORD_TOKEN: ${DISCORD_TOKEN}
-      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN}
       DISCORD_ROLE_ID: ${DISCORD_ROLE_ID}
-      DB_HOST: ${DB_HOST:-mariadb}
-      DB_USER: ${DB_USER:-minecraft}
-      DB_PASSWORD: ${DB_PASSWORD:-minecraftpassword}
-      DB_NAME: ${DB_NAME:-minecraft}
+      GRAPH_API_KEY: ${GRAPH_API_KEY}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
     env_file:
       - .env
+
+  redis:
+    image: redis:8-alpine
+    restart: always
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5

@@ -1,12 +1,21 @@
 import { Configuration, PlayersApi } from "@azisaba/graph";
 import { Client, Events, GatewayIntentBits } from "discord.js";
+import { createClient } from "redis";
 
-import { buildLinkCommand, receiveLinkCommand } from "./commands/link";
-import { createConnectionFromEnv, createTablesIfNotExists } from "./database";
+import { buildLinkMinecraftCommand, receiveLinkMinecraftCommand } from "./commands/link-minecraft";
+import {
+  buildUnlinkMinecraftCommand,
+  receiveUnlinkMinecraftCommand,
+} from "./commands/unlink-minecraft";
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
 });
+
+const redis = createClient({
+  url: process.env.REDIS_URL || "redis://localhost:6379",
+});
+redis.on("error", (error) => console.error("Redis client error:", error));
 
 async function main() {
   console.log("Starting...");
@@ -27,13 +36,13 @@ async function main() {
     }),
   );
 
-  const connection = await createConnectionFromEnv();
-  await createTablesIfNotExists(connection);
+  await redis.connect();
+  console.log("Connected to Redis");
 
   client.once(Events.ClientReady, async (readyClient) => {
     console.log(`Logged in as ${readyClient.user.tag}`);
 
-    const commands = [buildLinkCommand()];
+    const commands = [buildLinkMinecraftCommand(), buildUnlinkMinecraftCommand()];
     await readyClient.application.commands.set(commands);
     console.log(`Registered ${commands.length} command(s)`);
 
@@ -45,12 +54,17 @@ async function main() {
   });
 
   client.on(Events.InteractionCreate, async (interaction) => {
-    if (interaction.isChatInputCommand() && interaction.commandName === "link") {
-      await receiveLinkCommand({
-        interaction,
-        connection,
-        playersApi,
-      });
+    if (!interaction.isChatInputCommand()) {
+      return;
+    }
+
+    switch (interaction.commandName) {
+      case "link-minecraft":
+        await receiveLinkMinecraftCommand({ interaction, playersApi, redis });
+        break;
+      case "unlink-minecraft":
+        await receiveUnlinkMinecraftCommand({ interaction, playersApi });
+        break;
     }
   });
 
@@ -61,6 +75,9 @@ async function shutdown(signal: string) {
   console.log(`\nReceived ${signal}, shutting down...`);
   try {
     await client.destroy();
+    if (redis.isOpen) {
+      await redis.quit();
+    }
     console.log("Client destroyed successfully");
     process.exit(0);
   } catch (error) {
