@@ -1,6 +1,7 @@
 {
   "name": "discord-linker-bot",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.30.3",
   "description": "",
   "main": "dist/main.js",
   "scripts": {
