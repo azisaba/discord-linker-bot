@@ -1,13 +1,14 @@
-lockfileVersion: "9.0"
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
 importers:
+
   .:
     dependencies:
-      "@azisaba/graph":
+      '@azisaba/graph':
         specifier: 0.1.0-rc.4
         version: 0.1.0-rc.4
       discord.js:
@@ -20,10 +21,10 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0
     devDependencies:
-      "@trivago/prettier-plugin-sort-imports":
+      '@trivago/prettier-plugin-sort-imports':
         specifier: ^6.0.2
         version: 6.0.2(prettier@3.9.5)
-      "@types/node":
+      '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
       prettier:
@@ -34,236 +35,147 @@ importers:
         version: 5.9.3
 
 packages:
-  "@azisaba/graph@0.1.0-rc.4":
-    resolution:
-      {
-        integrity: sha512-JD29167W6/kpG2rZ+doCVvRDDIRoQuAtsktviTGODs+EWjNpg0Hq1LaCgS1EHM/uhcd3WYe6hqg3vCB+97P9qw==,
-      }
 
-  "@babel/code-frame@7.29.7":
-    resolution:
-      {
-        integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==,
-      }
-    engines: { node: ">=6.9.0" }
+  '@azisaba/graph@0.1.0-rc.4':
+    resolution: {integrity: sha512-JD29167W6/kpG2rZ+doCVvRDDIRoQuAtsktviTGODs+EWjNpg0Hq1LaCgS1EHM/uhcd3WYe6hqg3vCB+97P9qw==}
 
-  "@babel/generator@7.29.7":
-    resolution:
-      {
-        integrity: sha512-DkXD5OJQaAQIdZ1bt3UZdEnHAn9Imd3IVBdX03UFe+ony9Ojw5pzr9YVKGDY1jt+Gcn/FnGkNf8r+Vj5NOJWtQ==,
-      }
-    engines: { node: ">=6.9.0" }
+  '@babel/code-frame@7.29.7':
+    resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
+    engines: {node: '>=6.9.0'}
 
-  "@babel/helper-globals@7.29.7":
-    resolution:
-      {
-        integrity: sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA==,
-      }
-    engines: { node: ">=6.9.0" }
+  '@babel/generator@7.29.7':
+    resolution: {integrity: sha512-DkXD5OJQaAQIdZ1bt3UZdEnHAn9Imd3IVBdX03UFe+ony9Ojw5pzr9YVKGDY1jt+Gcn/FnGkNf8r+Vj5NOJWtQ==}
+    engines: {node: '>=6.9.0'}
 
-  "@babel/helper-string-parser@7.29.7":
-    resolution:
-      {
-        integrity: sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==,
-      }
-    engines: { node: ">=6.9.0" }
+  '@babel/helper-globals@7.29.7':
+    resolution: {integrity: sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA==}
+    engines: {node: '>=6.9.0'}
 
-  "@babel/helper-validator-identifier@7.29.7":
-    resolution:
-      {
-        integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==,
-      }
-    engines: { node: ">=6.9.0" }
+  '@babel/helper-string-parser@7.29.7':
+    resolution: {integrity: sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==}
+    engines: {node: '>=6.9.0'}
 
-  "@babel/parser@7.29.7":
-    resolution:
-      {
-        integrity: sha512-hnORnjP/1P/zFEndoeX+n+t1RwWRJiJpM/jO7FW32Kn9r5+sJB2JWOdYo4L6k78j15eCwY3Gm/7364B1EMwtNg==,
-      }
-    engines: { node: ">=6.0.0" }
+  '@babel/helper-validator-identifier@7.29.7':
+    resolution: {integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/parser@7.29.7':
+    resolution: {integrity: sha512-hnORnjP/1P/zFEndoeX+n+t1RwWRJiJpM/jO7FW32Kn9r5+sJB2JWOdYo4L6k78j15eCwY3Gm/7364B1EMwtNg==}
+    engines: {node: '>=6.0.0'}
     hasBin: true
 
-  "@babel/template@7.29.7":
-    resolution:
-      {
-        integrity: sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg==,
-      }
-    engines: { node: ">=6.9.0" }
+  '@babel/template@7.29.7':
+    resolution: {integrity: sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg==}
+    engines: {node: '>=6.9.0'}
 
-  "@babel/traverse@7.29.7":
-    resolution:
-      {
-        integrity: sha512-EhlfNQtZ+NK22w5BM61ciuiq1m58ed33Wr1Xan//ZRTy6hgjnwyCffRYwzsGXdASJSUJ1guZILsErh1eQcl+zw==,
-      }
-    engines: { node: ">=6.9.0" }
+  '@babel/traverse@7.29.7':
+    resolution: {integrity: sha512-EhlfNQtZ+NK22w5BM61ciuiq1m58ed33Wr1Xan//ZRTy6hgjnwyCffRYwzsGXdASJSUJ1guZILsErh1eQcl+zw==}
+    engines: {node: '>=6.9.0'}
 
-  "@babel/types@7.29.7":
-    resolution:
-      {
-        integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==,
-      }
-    engines: { node: ">=6.9.0" }
+  '@babel/types@7.29.7':
+    resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
+    engines: {node: '>=6.9.0'}
 
-  "@discordjs/builders@1.14.1":
-    resolution:
-      {
-        integrity: sha512-gSKkhXLqs96TCzk66VZuHHl8z2bQMJFGwrXC0f33ngK+FLNau4hU1PYny3DNJfNdSH+gVMzE85/d5FQ2BpcNwQ==,
-      }
-    engines: { node: ">=16.11.0" }
+  '@discordjs/builders@1.14.1':
+    resolution: {integrity: sha512-gSKkhXLqs96TCzk66VZuHHl8z2bQMJFGwrXC0f33ngK+FLNau4hU1PYny3DNJfNdSH+gVMzE85/d5FQ2BpcNwQ==}
+    engines: {node: '>=16.11.0'}
 
-  "@discordjs/collection@1.5.3":
-    resolution:
-      {
-        integrity: sha512-SVb428OMd3WO1paV3rm6tSjM4wC+Kecaa1EUGX7vc6/fddvw/6lg90z4QtCqm21zvVe92vMMDt9+DkIvjXImQQ==,
-      }
-    engines: { node: ">=16.11.0" }
+  '@discordjs/collection@1.5.3':
+    resolution: {integrity: sha512-SVb428OMd3WO1paV3rm6tSjM4wC+Kecaa1EUGX7vc6/fddvw/6lg90z4QtCqm21zvVe92vMMDt9+DkIvjXImQQ==}
+    engines: {node: '>=16.11.0'}
 
-  "@discordjs/collection@2.1.1":
-    resolution:
-      {
-        integrity: sha512-LiSusze9Tc7qF03sLCujF5iZp7K+vRNEDBZ86FT9aQAv3vxMLihUvKvpsCWiQ2DJq1tVckopKm1rxomgNUc9hg==,
-      }
-    engines: { node: ">=18" }
+  '@discordjs/collection@2.1.1':
+    resolution: {integrity: sha512-LiSusze9Tc7qF03sLCujF5iZp7K+vRNEDBZ86FT9aQAv3vxMLihUvKvpsCWiQ2DJq1tVckopKm1rxomgNUc9hg==}
+    engines: {node: '>=18'}
 
-  "@discordjs/formatters@0.6.2":
-    resolution:
-      {
-        integrity: sha512-y4UPwWhH6vChKRkGdMB4odasUbHOUwy7KL+OVwF86PvT6QVOwElx+TiI1/6kcmcEe+g5YRXJFiXSXUdabqZOvQ==,
-      }
-    engines: { node: ">=16.11.0" }
+  '@discordjs/formatters@0.6.2':
+    resolution: {integrity: sha512-y4UPwWhH6vChKRkGdMB4odasUbHOUwy7KL+OVwF86PvT6QVOwElx+TiI1/6kcmcEe+g5YRXJFiXSXUdabqZOvQ==}
+    engines: {node: '>=16.11.0'}
 
-  "@discordjs/rest@2.6.2":
-    resolution:
-      {
-        integrity: sha512-c5HI3hJuRWWrnpyCZAUYfIUTAEv9weX4tE2UfDqtM3ztizdKE9RFEf3G5IWhPyO+kPldUDpGv02XJAQzdUTC9Q==,
-      }
-    engines: { node: ">=18" }
+  '@discordjs/rest@2.6.2':
+    resolution: {integrity: sha512-c5HI3hJuRWWrnpyCZAUYfIUTAEv9weX4tE2UfDqtM3ztizdKE9RFEf3G5IWhPyO+kPldUDpGv02XJAQzdUTC9Q==}
+    engines: {node: '>=18'}
 
-  "@discordjs/util@1.2.0":
-    resolution:
-      {
-        integrity: sha512-3LKP7F2+atl9vJFhaBjn4nOaSWahZ/yWjOvA4e5pnXkt2qyXRCHLxoBQy81GFtLGCq7K9lPm9R517M1U+/90Qg==,
-      }
-    engines: { node: ">=18" }
+  '@discordjs/util@1.2.0':
+    resolution: {integrity: sha512-3LKP7F2+atl9vJFhaBjn4nOaSWahZ/yWjOvA4e5pnXkt2qyXRCHLxoBQy81GFtLGCq7K9lPm9R517M1U+/90Qg==}
+    engines: {node: '>=18'}
 
-  "@discordjs/ws@1.2.3":
-    resolution:
-      {
-        integrity: sha512-wPlQDxEmlDg5IxhJPuxXr3Vy9AjYq5xCvFWGJyD7w7Np8ZGu+Mc+97LCoEc/+AYCo2IDpKioiH0/c/mj5ZR9Uw==,
-      }
-    engines: { node: ">=16.11.0" }
+  '@discordjs/ws@1.2.3':
+    resolution: {integrity: sha512-wPlQDxEmlDg5IxhJPuxXr3Vy9AjYq5xCvFWGJyD7w7Np8ZGu+Mc+97LCoEc/+AYCo2IDpKioiH0/c/mj5ZR9Uw==}
+    engines: {node: '>=16.11.0'}
 
-  "@jridgewell/gen-mapping@0.3.13":
-    resolution:
-      {
-        integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==,
-      }
+  '@jridgewell/gen-mapping@0.3.13':
+    resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
 
-  "@jridgewell/resolve-uri@3.1.2":
-    resolution:
-      {
-        integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==,
-      }
-    engines: { node: ">=6.0.0" }
+  '@jridgewell/resolve-uri@3.1.2':
+    resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
+    engines: {node: '>=6.0.0'}
 
-  "@jridgewell/sourcemap-codec@1.5.5":
-    resolution:
-      {
-        integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==,
-      }
+  '@jridgewell/sourcemap-codec@1.5.5':
+    resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  "@jridgewell/trace-mapping@0.3.31":
-    resolution:
-      {
-        integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==,
-      }
+  '@jridgewell/trace-mapping@0.3.31':
+    resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  "@redis/bloom@6.1.0":
-    resolution:
-      {
-        integrity: sha512-Rzascjd9J9bJsM45T/Z9CTg1QY/B63B6YO8QorLVMeXnbBDsKiSCVR/+GQ061hYPk8FpTzWmPY8tAv2sT+JEtQ==,
-      }
-    engines: { node: ">= 20.0.0" }
+  '@redis/bloom@6.1.0':
+    resolution: {integrity: sha512-Rzascjd9J9bJsM45T/Z9CTg1QY/B63B6YO8QorLVMeXnbBDsKiSCVR/+GQ061hYPk8FpTzWmPY8tAv2sT+JEtQ==}
+    engines: {node: '>= 20.0.0'}
     peerDependencies:
-      "@redis/client": ^6.1.0
+      '@redis/client': ^6.1.0
 
-  "@redis/client@6.1.0":
-    resolution:
-      {
-        integrity: sha512-7u1LefkezJF0HESlhO7ZFLEPfyY+NejP3SGv+Z4pGaT3oM5GVVLa0u3f4rDLUrcw+SRo8IlX9Y8JAONeDdg1Ag==,
-      }
-    engines: { node: ">= 20.0.0" }
+  '@redis/client@6.1.0':
+    resolution: {integrity: sha512-7u1LefkezJF0HESlhO7ZFLEPfyY+NejP3SGv+Z4pGaT3oM5GVVLa0u3f4rDLUrcw+SRo8IlX9Y8JAONeDdg1Ag==}
+    engines: {node: '>= 20.0.0'}
     peerDependencies:
-      "@node-rs/xxhash": ^1.1.0
-      "@opentelemetry/api": ">=1 <2"
+      '@node-rs/xxhash': ^1.1.0
+      '@opentelemetry/api': '>=1 <2'
     peerDependenciesMeta:
-      "@node-rs/xxhash":
+      '@node-rs/xxhash':
         optional: true
-      "@opentelemetry/api":
+      '@opentelemetry/api':
         optional: true
 
-  "@redis/json@6.1.0":
-    resolution:
-      {
-        integrity: sha512-/GFjQA6bu5pG9ClCJAI5Xx4bNXe7UTpxBBlIupBNTrn1+nY860apGnYJuaSCDV2BmEbTidpa7O2qa28oxKx+rg==,
-      }
-    engines: { node: ">= 20.0.0" }
+  '@redis/json@6.1.0':
+    resolution: {integrity: sha512-/GFjQA6bu5pG9ClCJAI5Xx4bNXe7UTpxBBlIupBNTrn1+nY860apGnYJuaSCDV2BmEbTidpa7O2qa28oxKx+rg==}
+    engines: {node: '>= 20.0.0'}
     peerDependencies:
-      "@redis/client": ^6.1.0
+      '@redis/client': ^6.1.0
 
-  "@redis/search@6.1.0":
-    resolution:
-      {
-        integrity: sha512-kS5agg+3yZbrdrt8omrew7FLCD8eOm7tarG1CROekPBRe+QGDR9aOpnHIQaYsYi6wPRTH70nQiF06AIjgURefQ==,
-      }
-    engines: { node: ">= 20.0.0" }
+  '@redis/search@6.1.0':
+    resolution: {integrity: sha512-kS5agg+3yZbrdrt8omrew7FLCD8eOm7tarG1CROekPBRe+QGDR9aOpnHIQaYsYi6wPRTH70nQiF06AIjgURefQ==}
+    engines: {node: '>= 20.0.0'}
     peerDependencies:
-      "@redis/client": ^6.1.0
+      '@redis/client': ^6.1.0
 
-  "@redis/time-series@6.1.0":
-    resolution:
-      {
-        integrity: sha512-uIDBtV8MmG/xpJsRqbGSO4iX6ryj37MLMP82lRpFvI7ykAVe5GyqgxigEbU+uZNv9kDPNMKw3dvI/S/J1BNBzA==,
-      }
-    engines: { node: ">= 20.0.0" }
+  '@redis/time-series@6.1.0':
+    resolution: {integrity: sha512-uIDBtV8MmG/xpJsRqbGSO4iX6ryj37MLMP82lRpFvI7ykAVe5GyqgxigEbU+uZNv9kDPNMKw3dvI/S/J1BNBzA==}
+    engines: {node: '>= 20.0.0'}
     peerDependencies:
-      "@redis/client": ^6.1.0
+      '@redis/client': ^6.1.0
 
-  "@sapphire/async-queue@1.5.5":
-    resolution:
-      {
-        integrity: sha512-cvGzxbba6sav2zZkH8GPf2oGk9yYoD5qrNWdu9fRehifgnFZJMV+nuy2nON2roRO4yQQ+v7MK/Pktl/HgfsUXg==,
-      }
-    engines: { node: ">=v14.0.0", npm: ">=7.0.0" }
+  '@sapphire/async-queue@1.5.5':
+    resolution: {integrity: sha512-cvGzxbba6sav2zZkH8GPf2oGk9yYoD5qrNWdu9fRehifgnFZJMV+nuy2nON2roRO4yQQ+v7MK/Pktl/HgfsUXg==}
+    engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
 
-  "@sapphire/shapeshift@4.0.0":
-    resolution:
-      {
-        integrity: sha512-d9dUmWVA7MMiKobL3VpLF8P2aeanRTu6ypG2OIaEv/ZHH/SUQ2iHOVyi5wAPjQ+HmnMuL0whK9ez8I/raWbtIg==,
-      }
-    engines: { node: ">=v16" }
+  '@sapphire/shapeshift@4.0.0':
+    resolution: {integrity: sha512-d9dUmWVA7MMiKobL3VpLF8P2aeanRTu6ypG2OIaEv/ZHH/SUQ2iHOVyi5wAPjQ+HmnMuL0whK9ez8I/raWbtIg==}
+    engines: {node: '>=v16'}
 
-  "@sapphire/snowflake@3.5.5":
-    resolution:
-      {
-        integrity: sha512-xzvBr1Q1c4lCe7i6sRnrofxeO1QTP/LKQ6A6qy0iB4x5yfiSfARMEQEghojzTNALDTcv8En04qYNIco9/K9eZQ==,
-      }
-    engines: { node: ">=v14.0.0", npm: ">=7.0.0" }
+  '@sapphire/snowflake@3.5.5':
+    resolution: {integrity: sha512-xzvBr1Q1c4lCe7i6sRnrofxeO1QTP/LKQ6A6qy0iB4x5yfiSfARMEQEghojzTNALDTcv8En04qYNIco9/K9eZQ==}
+    engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
 
-  "@trivago/prettier-plugin-sort-imports@6.0.2":
-    resolution:
-      {
-        integrity: sha512-3DgfkukFyC/sE/VuYjaUUWoFfuVjPK55vOFDsxD56XXynFMCZDYFogH2l/hDfOsQAm1myoU/1xByJ3tWqtulXA==,
-      }
-    engines: { node: ">= 20" }
+  '@trivago/prettier-plugin-sort-imports@6.0.2':
+    resolution: {integrity: sha512-3DgfkukFyC/sE/VuYjaUUWoFfuVjPK55vOFDsxD56XXynFMCZDYFogH2l/hDfOsQAm1myoU/1xByJ3tWqtulXA==}
+    engines: {node: '>= 20'}
     peerDependencies:
-      "@vue/compiler-sfc": 3.x
+      '@vue/compiler-sfc': 3.x
       prettier: 2.x - 3.x
-      prettier-plugin-ember-template-tag: ">= 2.0.0"
+      prettier-plugin-ember-template-tag: '>= 2.0.0'
       prettier-plugin-svelte: 3.x
       svelte: 4.x || 5.x
     peerDependenciesMeta:
-      "@vue/compiler-sfc":
+      '@vue/compiler-sfc':
         optional: true
       prettier-plugin-ember-template-tag:
         optional: true
@@ -272,214 +184,121 @@ packages:
       svelte:
         optional: true
 
-  "@types/node@26.1.1":
-    resolution:
-      {
-        integrity: sha512-nxAkRSVkN1Y0JC1W8ky/fTfkGsMmcrRsbx+3XoZE+rMOX71kLYTV7fLXpqud1GpbpP5TuffXFqfX7fH2GgZREw==,
-      }
+  '@types/node@26.1.1':
+    resolution: {integrity: sha512-nxAkRSVkN1Y0JC1W8ky/fTfkGsMmcrRsbx+3XoZE+rMOX71kLYTV7fLXpqud1GpbpP5TuffXFqfX7fH2GgZREw==}
 
-  "@types/ws@8.18.1":
-    resolution:
-      {
-        integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==,
-      }
+  '@types/ws@8.18.1':
+    resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
-  "@vladfrangu/async_event_emitter@2.4.7":
-    resolution:
-      {
-        integrity: sha512-Xfe6rpCTxSxfbswi/W/Pz7zp1WWSNn4A0eW4mLkQUewCrXXtMj31lCg+iQyTkh/CkusZSq9eDflu7tjEDXUY6g==,
-      }
-    engines: { node: ">=v14.0.0", npm: ">=7.0.0" }
+  '@vladfrangu/async_event_emitter@2.4.7':
+    resolution: {integrity: sha512-Xfe6rpCTxSxfbswi/W/Pz7zp1WWSNn4A0eW4mLkQUewCrXXtMj31lCg+iQyTkh/CkusZSq9eDflu7tjEDXUY6g==}
+    engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
 
   balanced-match@1.0.2:
-    resolution:
-      {
-        integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==,
-      }
+    resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
   brace-expansion@2.1.2:
-    resolution:
-      {
-        integrity: sha512-w5JZcKgdhDOgOwm8H+KgbosopHMuGcl6qbulwjtz3SM7I7P3yW1eAjzMPLrIE+NQ9vjgANKHWeMHnrT0OXW1oA==,
-      }
+    resolution: {integrity: sha512-w5JZcKgdhDOgOwm8H+KgbosopHMuGcl6qbulwjtz3SM7I7P3yW1eAjzMPLrIE+NQ9vjgANKHWeMHnrT0OXW1oA==}
 
   cluster-key-slot@1.1.2:
-    resolution:
-      {
-        integrity: sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==,
-      }
-    engines: { node: ">=0.10.0" }
+    resolution: {integrity: sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==}
+    engines: {node: '>=0.10.0'}
 
   debug@4.4.3:
-    resolution:
-      {
-        integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==,
-      }
-    engines: { node: ">=6.0" }
+    resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
+    engines: {node: '>=6.0'}
     peerDependencies:
-      supports-color: "*"
+      supports-color: '*'
     peerDependenciesMeta:
       supports-color:
         optional: true
 
   discord-api-types@0.38.50:
-    resolution:
-      {
-        integrity: sha512-J2n/bpIETX3DQ6AJ7/0xbsTLmYiJQtO/LKcXKC1YDbB56OUwtDbdXOFE8Q4g8jVGHBR2VAy1+D4ngaIgkMNV9w==,
-      }
+    resolution: {integrity: sha512-J2n/bpIETX3DQ6AJ7/0xbsTLmYiJQtO/LKcXKC1YDbB56OUwtDbdXOFE8Q4g8jVGHBR2VAy1+D4ngaIgkMNV9w==}
 
   discord.js@14.27.0:
-    resolution:
-      {
-        integrity: sha512-qHbFlFG2N7y3LjPySYsL6A1+BnX6bkTVgo842EX0CqVPk/KTMwZkojPHEXKsQUpWZNyz5BISNHK1cPpQw0+m4A==,
-      }
-    engines: { node: ">=18" }
+    resolution: {integrity: sha512-qHbFlFG2N7y3LjPySYsL6A1+BnX6bkTVgo842EX0CqVPk/KTMwZkojPHEXKsQUpWZNyz5BISNHK1cPpQw0+m4A==}
+    engines: {node: '>=18'}
 
   dotenv@16.6.1:
-    resolution:
-      {
-        integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+    engines: {node: '>=12'}
 
   fast-deep-equal@3.1.3:
-    resolution:
-      {
-        integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==,
-      }
+    resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
 
   javascript-natural-sort@0.7.1:
-    resolution:
-      {
-        integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==,
-      }
+    resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
 
   js-tokens@4.0.0:
-    resolution:
-      {
-        integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==,
-      }
+    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
   jsesc@3.1.0:
-    resolution:
-      {
-        integrity: sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==,
-      }
-    engines: { node: ">=6" }
+    resolution: {integrity: sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==}
+    engines: {node: '>=6'}
     hasBin: true
 
   lodash-es@4.18.1:
-    resolution:
-      {
-        integrity: sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==,
-      }
+    resolution: {integrity: sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==}
 
   lodash.snakecase@4.1.1:
-    resolution:
-      {
-        integrity: sha512-QZ1d4xoBHYUeuouhEq3lk3Uq7ldgyFXGBhg04+oRLnIz8o9T65Eh+8YdroUwn846zchkA9yDsDl5CVVaV2nqYw==,
-      }
+    resolution: {integrity: sha512-QZ1d4xoBHYUeuouhEq3lk3Uq7ldgyFXGBhg04+oRLnIz8o9T65Eh+8YdroUwn846zchkA9yDsDl5CVVaV2nqYw==}
 
   lodash@4.18.1:
-    resolution:
-      {
-        integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==,
-      }
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   magic-bytes.js@1.13.0:
-    resolution:
-      {
-        integrity: sha512-afO2mnxW7GDTXMm5/AoN1WuOcdoKhtgXjIvHmobqTD1grNplhGdv3PFOyjCVmrnOZBIT/gD/koDKpYG+0mvHcg==,
-      }
+    resolution: {integrity: sha512-afO2mnxW7GDTXMm5/AoN1WuOcdoKhtgXjIvHmobqTD1grNplhGdv3PFOyjCVmrnOZBIT/gD/koDKpYG+0mvHcg==}
 
   minimatch@9.0.9:
-    resolution:
-      {
-        integrity: sha512-OBwBN9AL4dqmETlpS2zasx+vTeWclWzkblfZk7KTA5j3jeOONz/tRCnZomUyvNg83wL5Zv9Ss6HMJXAgL8R2Yg==,
-      }
-    engines: { node: ">=16 || 14 >=14.17" }
+    resolution: {integrity: sha512-OBwBN9AL4dqmETlpS2zasx+vTeWclWzkblfZk7KTA5j3jeOONz/tRCnZomUyvNg83wL5Zv9Ss6HMJXAgL8R2Yg==}
+    engines: {node: '>=16 || 14 >=14.17'}
 
   ms@2.1.3:
-    resolution:
-      {
-        integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==,
-      }
+    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
   parse-imports-exports@0.2.4:
-    resolution:
-      {
-        integrity: sha512-4s6vd6dx1AotCx/RCI2m7t7GCh5bDRUtGNvRfHSP2wbBQdMi67pPe7mtzmgwcaQ8VKK/6IB7Glfyu3qdZJPybQ==,
-      }
+    resolution: {integrity: sha512-4s6vd6dx1AotCx/RCI2m7t7GCh5bDRUtGNvRfHSP2wbBQdMi67pPe7mtzmgwcaQ8VKK/6IB7Glfyu3qdZJPybQ==}
 
   parse-statements@1.0.11:
-    resolution:
-      {
-        integrity: sha512-HlsyYdMBnbPQ9Jr/VgJ1YF4scnldvJpJxCVx6KgqPL4dxppsWrJHCIIxQXMJrqGnsRkNPATbeMJ8Yxu7JMsYcA==,
-      }
+    resolution: {integrity: sha512-HlsyYdMBnbPQ9Jr/VgJ1YF4scnldvJpJxCVx6KgqPL4dxppsWrJHCIIxQXMJrqGnsRkNPATbeMJ8Yxu7JMsYcA==}
 
   picocolors@1.1.1:
-    resolution:
-      {
-        integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==,
-      }
+    resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
   prettier@3.9.5:
-    resolution:
-      {
-        integrity: sha512-/FVl766LpUfB5vXgCYOYa0MeV/441Ia99AeICQIQFTY/Nw0roZwULcXpku5i1/m5kt/baz+s4Zogspd839HSMg==,
-      }
-    engines: { node: ">=14" }
+    resolution: {integrity: sha512-/FVl766LpUfB5vXgCYOYa0MeV/441Ia99AeICQIQFTY/Nw0roZwULcXpku5i1/m5kt/baz+s4Zogspd839HSMg==}
+    engines: {node: '>=14'}
     hasBin: true
 
   redis@6.1.0:
-    resolution:
-      {
-        integrity: sha512-0kvUPM8RHP/ZMa0xYaDTcG5e8tIGW6kz6MToVT0V8iOnk6bkXp2jncGRGe2bZEk41lZwiDspUqjZCSk5ohjcKw==,
-      }
-    engines: { node: ">= 20.0.0" }
+    resolution: {integrity: sha512-0kvUPM8RHP/ZMa0xYaDTcG5e8tIGW6kz6MToVT0V8iOnk6bkXp2jncGRGe2bZEk41lZwiDspUqjZCSk5ohjcKw==}
+    engines: {node: '>= 20.0.0'}
 
   ts-mixer@6.0.4:
-    resolution:
-      {
-        integrity: sha512-ufKpbmrugz5Aou4wcr5Wc1UUFWOLhq+Fm6qa6P0w0K5Qw2yhaUoiWszhCVuNQyNwrlGiscHOmqYoAox1PtvgjA==,
-      }
+    resolution: {integrity: sha512-ufKpbmrugz5Aou4wcr5Wc1UUFWOLhq+Fm6qa6P0w0K5Qw2yhaUoiWszhCVuNQyNwrlGiscHOmqYoAox1PtvgjA==}
 
   tslib@2.8.1:
-    resolution:
-      {
-        integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==,
-      }
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
   typescript@5.9.3:
-    resolution:
-      {
-        integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==,
-      }
-    engines: { node: ">=14.17" }
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
     hasBin: true
 
   undici-types@8.3.0:
-    resolution:
-      {
-        integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==,
-      }
+    resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
   undici@6.27.0:
-    resolution:
-      {
-        integrity: sha512-YmfV3YnEDzXRC5lZ2jWtWWHKGUm1zIt8AhesR1tens+HTNv+YZlN/dp6G727LOvMJ8xjP9Be7Y2Sdr96LDm+pg==,
-      }
-    engines: { node: ">=18.17" }
+    resolution: {integrity: sha512-YmfV3YnEDzXRC5lZ2jWtWWHKGUm1zIt8AhesR1tens+HTNv+YZlN/dp6G727LOvMJ8xjP9Be7Y2Sdr96LDm+pg==}
+    engines: {node: '>=18.17'}
 
   ws@8.21.1:
-    resolution:
-      {
-        integrity: sha512-+0NTnW77fFN/DjQi6k/Sq/Yvk4Sgajw7urW8V+asjXnRgDs9gyGkdb7EzgfhA4goXsRIZKE28fzIXBHEzhuiWw==,
-      }
-    engines: { node: ">=10.0.0" }
+    resolution: {integrity: sha512-+0NTnW77fFN/DjQi6k/Sq/Yvk4Sgajw7urW8V+asjXnRgDs9gyGkdb7EzgfhA4goXsRIZKE28fzIXBHEzhuiWw==}
+    engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
-      utf-8-validate: ">=5.0.2"
+      utf-8-validate: '>=5.0.2'
     peerDependenciesMeta:
       bufferutil:
         optional: true
@@ -487,97 +306,98 @@ packages:
         optional: true
 
 snapshots:
-  "@azisaba/graph@0.1.0-rc.4": {}
 
-  "@babel/code-frame@7.29.7":
+  '@azisaba/graph@0.1.0-rc.4': {}
+
+  '@babel/code-frame@7.29.7':
     dependencies:
-      "@babel/helper-validator-identifier": 7.29.7
+      '@babel/helper-validator-identifier': 7.29.7
       js-tokens: 4.0.0
       picocolors: 1.1.1
 
-  "@babel/generator@7.29.7":
+  '@babel/generator@7.29.7':
     dependencies:
-      "@babel/parser": 7.29.7
-      "@babel/types": 7.29.7
-      "@jridgewell/gen-mapping": 0.3.13
-      "@jridgewell/trace-mapping": 0.3.31
+      '@babel/parser': 7.29.7
+      '@babel/types': 7.29.7
+      '@jridgewell/gen-mapping': 0.3.13
+      '@jridgewell/trace-mapping': 0.3.31
       jsesc: 3.1.0
 
-  "@babel/helper-globals@7.29.7": {}
+  '@babel/helper-globals@7.29.7': {}
 
-  "@babel/helper-string-parser@7.29.7": {}
+  '@babel/helper-string-parser@7.29.7': {}
 
-  "@babel/helper-validator-identifier@7.29.7": {}
+  '@babel/helper-validator-identifier@7.29.7': {}
 
-  "@babel/parser@7.29.7":
+  '@babel/parser@7.29.7':
     dependencies:
-      "@babel/types": 7.29.7
+      '@babel/types': 7.29.7
 
-  "@babel/template@7.29.7":
+  '@babel/template@7.29.7':
     dependencies:
-      "@babel/code-frame": 7.29.7
-      "@babel/parser": 7.29.7
-      "@babel/types": 7.29.7
+      '@babel/code-frame': 7.29.7
+      '@babel/parser': 7.29.7
+      '@babel/types': 7.29.7
 
-  "@babel/traverse@7.29.7":
+  '@babel/traverse@7.29.7':
     dependencies:
-      "@babel/code-frame": 7.29.7
-      "@babel/generator": 7.29.7
-      "@babel/helper-globals": 7.29.7
-      "@babel/parser": 7.29.7
-      "@babel/template": 7.29.7
-      "@babel/types": 7.29.7
+      '@babel/code-frame': 7.29.7
+      '@babel/generator': 7.29.7
+      '@babel/helper-globals': 7.29.7
+      '@babel/parser': 7.29.7
+      '@babel/template': 7.29.7
+      '@babel/types': 7.29.7
       debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
 
-  "@babel/types@7.29.7":
+  '@babel/types@7.29.7':
     dependencies:
-      "@babel/helper-string-parser": 7.29.7
-      "@babel/helper-validator-identifier": 7.29.7
+      '@babel/helper-string-parser': 7.29.7
+      '@babel/helper-validator-identifier': 7.29.7
 
-  "@discordjs/builders@1.14.1":
+  '@discordjs/builders@1.14.1':
     dependencies:
-      "@discordjs/formatters": 0.6.2
-      "@discordjs/util": 1.2.0
-      "@sapphire/shapeshift": 4.0.0
+      '@discordjs/formatters': 0.6.2
+      '@discordjs/util': 1.2.0
+      '@sapphire/shapeshift': 4.0.0
       discord-api-types: 0.38.50
       fast-deep-equal: 3.1.3
       ts-mixer: 6.0.4
       tslib: 2.8.1
 
-  "@discordjs/collection@1.5.3": {}
+  '@discordjs/collection@1.5.3': {}
 
-  "@discordjs/collection@2.1.1": {}
+  '@discordjs/collection@2.1.1': {}
 
-  "@discordjs/formatters@0.6.2":
+  '@discordjs/formatters@0.6.2':
     dependencies:
       discord-api-types: 0.38.50
 
-  "@discordjs/rest@2.6.2":
+  '@discordjs/rest@2.6.2':
     dependencies:
-      "@discordjs/collection": 2.1.1
-      "@discordjs/util": 1.2.0
-      "@sapphire/async-queue": 1.5.5
-      "@sapphire/snowflake": 3.5.5
-      "@vladfrangu/async_event_emitter": 2.4.7
+      '@discordjs/collection': 2.1.1
+      '@discordjs/util': 1.2.0
+      '@sapphire/async-queue': 1.5.5
+      '@sapphire/snowflake': 3.5.5
+      '@vladfrangu/async_event_emitter': 2.4.7
       discord-api-types: 0.38.50
       magic-bytes.js: 1.13.0
       tslib: 2.8.1
       undici: 6.27.0
 
-  "@discordjs/util@1.2.0":
+  '@discordjs/util@1.2.0':
     dependencies:
       discord-api-types: 0.38.50
 
-  "@discordjs/ws@1.2.3":
+  '@discordjs/ws@1.2.3':
     dependencies:
-      "@discordjs/collection": 2.1.1
-      "@discordjs/rest": 2.6.2
-      "@discordjs/util": 1.2.0
-      "@sapphire/async-queue": 1.5.5
-      "@types/ws": 8.18.1
-      "@vladfrangu/async_event_emitter": 2.4.7
+      '@discordjs/collection': 2.1.1
+      '@discordjs/rest': 2.6.2
+      '@discordjs/util': 1.2.0
+      '@sapphire/async-queue': 1.5.5
+      '@types/ws': 8.18.1
+      '@vladfrangu/async_event_emitter': 2.4.7
       discord-api-types: 0.38.50
       tslib: 2.8.1
       ws: 8.21.1
@@ -585,55 +405,55 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  "@jridgewell/gen-mapping@0.3.13":
+  '@jridgewell/gen-mapping@0.3.13':
     dependencies:
-      "@jridgewell/sourcemap-codec": 1.5.5
-      "@jridgewell/trace-mapping": 0.3.31
+      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/trace-mapping': 0.3.31
 
-  "@jridgewell/resolve-uri@3.1.2": {}
+  '@jridgewell/resolve-uri@3.1.2': {}
 
-  "@jridgewell/sourcemap-codec@1.5.5": {}
+  '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  "@jridgewell/trace-mapping@0.3.31":
+  '@jridgewell/trace-mapping@0.3.31':
     dependencies:
-      "@jridgewell/resolve-uri": 3.1.2
-      "@jridgewell/sourcemap-codec": 1.5.5
+      '@jridgewell/resolve-uri': 3.1.2
+      '@jridgewell/sourcemap-codec': 1.5.5
 
-  "@redis/bloom@6.1.0(@redis/client@6.1.0)":
+  '@redis/bloom@6.1.0(@redis/client@6.1.0)':
     dependencies:
-      "@redis/client": 6.1.0
+      '@redis/client': 6.1.0
 
-  "@redis/client@6.1.0":
+  '@redis/client@6.1.0':
     dependencies:
       cluster-key-slot: 1.1.2
 
-  "@redis/json@6.1.0(@redis/client@6.1.0)":
+  '@redis/json@6.1.0(@redis/client@6.1.0)':
     dependencies:
-      "@redis/client": 6.1.0
+      '@redis/client': 6.1.0
 
-  "@redis/search@6.1.0(@redis/client@6.1.0)":
+  '@redis/search@6.1.0(@redis/client@6.1.0)':
     dependencies:
-      "@redis/client": 6.1.0
+      '@redis/client': 6.1.0
 
-  "@redis/time-series@6.1.0(@redis/client@6.1.0)":
+  '@redis/time-series@6.1.0(@redis/client@6.1.0)':
     dependencies:
-      "@redis/client": 6.1.0
+      '@redis/client': 6.1.0
 
-  "@sapphire/async-queue@1.5.5": {}
+  '@sapphire/async-queue@1.5.5': {}
 
-  "@sapphire/shapeshift@4.0.0":
+  '@sapphire/shapeshift@4.0.0':
     dependencies:
       fast-deep-equal: 3.1.3
       lodash: 4.18.1
 
-  "@sapphire/snowflake@3.5.5": {}
+  '@sapphire/snowflake@3.5.5': {}
 
-  "@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.9.5)":
+  '@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.9.5)':
     dependencies:
-      "@babel/generator": 7.29.7
-      "@babel/parser": 7.29.7
-      "@babel/traverse": 7.29.7
-      "@babel/types": 7.29.7
+      '@babel/generator': 7.29.7
+      '@babel/parser': 7.29.7
+      '@babel/traverse': 7.29.7
+      '@babel/types': 7.29.7
       javascript-natural-sort: 0.7.1
       lodash-es: 4.18.1
       minimatch: 9.0.9
@@ -642,15 +462,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  "@types/node@26.1.1":
+  '@types/node@26.1.1':
     dependencies:
       undici-types: 8.3.0
 
-  "@types/ws@8.18.1":
+  '@types/ws@8.18.1':
     dependencies:
-      "@types/node": 26.1.1
+      '@types/node': 26.1.1
 
-  "@vladfrangu/async_event_emitter@2.4.7": {}
+  '@vladfrangu/async_event_emitter@2.4.7': {}
 
   balanced-match@1.0.2: {}
 
@@ -668,13 +488,13 @@ snapshots:
 
   discord.js@14.27.0:
     dependencies:
-      "@discordjs/builders": 1.14.1
-      "@discordjs/collection": 1.5.3
-      "@discordjs/formatters": 0.6.2
-      "@discordjs/rest": 2.6.2
-      "@discordjs/util": 1.2.0
-      "@discordjs/ws": 1.2.3
-      "@sapphire/snowflake": 3.5.5
+      '@discordjs/builders': 1.14.1
+      '@discordjs/collection': 1.5.3
+      '@discordjs/formatters': 0.6.2
+      '@discordjs/rest': 2.6.2
+      '@discordjs/util': 1.2.0
+      '@discordjs/ws': 1.2.3
+      '@sapphire/snowflake': 3.5.5
       discord-api-types: 0.38.50
       fast-deep-equal: 3.1.3
       lodash.snakecase: 4.1.1
@@ -721,14 +541,14 @@ snapshots:
 
   redis@6.1.0:
     dependencies:
-      "@redis/bloom": 6.1.0(@redis/client@6.1.0)
-      "@redis/client": 6.1.0
-      "@redis/json": 6.1.0(@redis/client@6.1.0)
-      "@redis/search": 6.1.0(@redis/client@6.1.0)
-      "@redis/time-series": 6.1.0(@redis/client@6.1.0)
+      '@redis/bloom': 6.1.0(@redis/client@6.1.0)
+      '@redis/client': 6.1.0
+      '@redis/json': 6.1.0(@redis/client@6.1.0)
+      '@redis/search': 6.1.0(@redis/client@6.1.0)
+      '@redis/time-series': 6.1.0(@redis/client@6.1.0)
     transitivePeerDependencies:
-      - "@node-rs/xxhash"
-      - "@opentelemetry/api"
+      - '@node-rs/xxhash'
+      - '@opentelemetry/api'
 
   ts-mixer@6.0.4: {}
 
